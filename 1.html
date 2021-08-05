@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        div{
+        display:inline-block;
+        margin: 10px;
+        } 
+
+        div p {text-align: center;
+               font-size: 14pt;}
+
+    </style>
+
+</head>
+
+<body>
+
+    <p id=img></p>
+    <p id=img2></p>
+    <script>
+    let s  = '';
+
+    arrImgs = [
+     { f: 'mir.jpg', n: 'Мир', d: 'Впервые поселение Мир упоминается в 1434 г., когда становится частным имением  господарского маршалка Сеньки Гедыгольдовича. По составленному им завещанию в 1451 г. Мир переходит к Анне Бутримовне, его приёмной дочери.'},
+     { f: 'red.jpg', n: 'Костёл', d: 'Костёл святого Симеона и святой Елены (белор. Касцёл святога Сымона і святой Алены, польск. Kościół św. Szymona i Heleny), часто называемый также Красным костёлом — наиболее известный католический храм Минска.'},
+     { f: 'troi.jpg', n: 'Троицкое', d:'Тро́ицкое предме́стье (Троицкая гора) — исторический район города Минска, расположенный в северо-восточной части исторического центра на левом берегу реки Свислочь. Некогда являлся торгово-административным центром столицы Республики Беларусь.'},
+    ];
+   
+    for (let i = 0; i < 3; i++) {
+   
+     let f = arrImgs[i].f;
+     let n = arrImgs[i].n;
+     console.log(f);
+     s += `<div><img src="img/${f}" onclick="imageShow(${i})" style= 'width: 400px; height: 270px'><p>${n}</p></div>`;
+   
+    }
+   
+    function imageShow(i) {
+     let s1 = '';
+     let path = arrImgs[i].f;
+     let name = arrImgs[i].n;
+     let description = arrImgs[i].d;
+     s1 += `<div><img src="img/${path}" onclick="imageHide()" style='width: 800px; height: 540px'><p>${name}</p> <br>${description}</br></div>`
+     img2.innerHTML = s1;
+    }
+   
+    function imageHide() {
+     img2.innerHTML = '';
+    }
+   
+    img.innerHTML = s;
+
+
+</script>
+</body>
+</html>
